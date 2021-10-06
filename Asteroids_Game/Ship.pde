@@ -1,6 +1,6 @@
 class MyShips extends GameObject {
   
- 
+ int TimeShot, threshold;
    
   MyShips(){
    lives = 3; 
@@ -11,10 +11,13 @@ class MyShips extends GameObject {
     
     dir = new PVector(0,-0.1);
     
-    
+    TimeShot = 0;
+    threshold = 30;
   }
   void act() {
      loc = loc.add(vel);
+    
+    TimeShot++;
     
    
    float lx = vel.x;
@@ -23,15 +26,17 @@ class MyShips extends GameObject {
     if (skey == true) vel.sub(dir); 
     if (dkey == true) dir.rotate(radians(5)); 
     if (akey == true) dir.rotate(radians(-5)); 
-    if (space == true) MyObjects.add(new Bullet());
+    if (space == true && TimeShot >= threshold) {
+      MyObjects.add(new Bullet());
+      TimeShot = 0;
+    }
     
     if(lx == vel.x) vel.x *= .95;
     if(ly == vel.y) vel.y *= .95;
     
-    if(vel.x > 20) vel.x = 20;
-    if(vel.y > 20) vel.y = 20;
-    if(vel.x < -20) vel.x = -20;
-    if(vel.y < -20) vel.y = -20;
+    if (vel.mag() > 15) vel.setMag(15);
+    
+    
     
    if (loc.x < -22) loc.x = width+22;
    if (loc.x > width+22) loc.x = -22;

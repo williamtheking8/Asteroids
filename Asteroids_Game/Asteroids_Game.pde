@@ -36,7 +36,8 @@ void setup() {
   
   MyObjects.add(Ship);
   MyObjects.add(new Asteroid());
-  
+  MyObjects.add(new Asteroid());
+  MyObjects.add(new Asteroid());
 }
 void draw() {
   background(0);

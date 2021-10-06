@@ -1,9 +1,12 @@
 class GameObject{
   int lives;
   
+  int size;
+  
   PVector loc;
   PVector vel; 
   PVector dir;
+  
   
   GameObject(){
     
@@ -19,9 +22,9 @@ class GameObject{
     
     loc = loc.add(vel);
      
-   if (loc.x < -22) loc.x = width+22;
-   if (loc.x > width+22) loc.x = -22;
-   if (loc.y < -20) loc.y = height+20;
-   if (loc.y > height+20) loc.y = -20;
+   if (loc.x < -size) loc.x = width+size;
+   if (loc.x > width+size) loc.x = -size;
+   if (loc.y < -size) loc.y = height+size;
+   if (loc.y > height+size) loc.y = -size;
   }
 }

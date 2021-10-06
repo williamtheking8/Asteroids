@@ -4,12 +4,15 @@ class Bullet extends GameObject {
  
 
   Bullet () {
-    r = 70;
+    r = 100;
     lives = 1; 
+    size = 10;
+    
     loc = new PVector(Ship.loc.x,Ship.loc.y);
     
     vel = new PVector(Ship.dir.x,Ship.dir.y);
     vel.setMag(10);
+    vel.add(Ship.vel);
   }
 
   void show() {
@@ -17,7 +20,7 @@ class Bullet extends GameObject {
     noStroke();
     strokeWeight(1);
     stroke(0,10);
-   ellipse(loc.x,loc.y,10,10);
+   ellipse(loc.x,loc.y,size,size);
   }
   void act() {
    loc = loc.add(vel);
@@ -27,7 +30,7 @@ class Bullet extends GameObject {
    if (loc.y > height) loc.y = 0;
    
    r--;
-   if (r >=0) {
+   if (r <= 0) {
      lives = 0;
    }
    
