@@ -1,7 +1,8 @@
 class GameObject{
   int lives;
   
-  int size;
+  int size, a;
+  
   
   PVector loc;
   PVector vel; 
