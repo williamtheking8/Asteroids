@@ -1,16 +1,15 @@
 class Asteroid extends GameObject {
   
-  int MyAng;
+  int MyAng;  //Variables for Asteroids
   int a;
   int r;
  // int split;
   
   Asteroid() {
     lives = 1;
-    r = 0;
+    r = 0;                              //ASTEROID SETUP
     a = 1;
     
-  //  split = 0;
     
     size = int (random(25,100));
     
@@ -23,7 +22,7 @@ class Asteroid extends GameObject {
   Asteroid(int s,  float x, float y, float d) {
    lives = 1;
     size = s;
-    loc = new PVector(x, y);; 
+    loc = new PVector(x, y);      //ASTEROID CREATION LOGIC WHEN SPLITTING
     vel = new PVector (1,1);
    // if(split == 0) {
     vel.rotate(d);
@@ -45,7 +44,7 @@ class Asteroid extends GameObject {
       if (MyObj instanceof Bullet) {
         if ( dist(loc.x,loc.y,MyObj.loc.x,MyObj.loc.y) <= size/2 + MyObj.size/2){
          MyObj.lives = 0;
-         lives = 0;   //Could take Bullet vel and rotate it to make asteroids split convincingly
+         lives = 0;   //ASTEROID COLLISION LOGIC, DENSE CODE
         int j = 0;
         while( j <= 360) {
           MyObjects.add(new Particle(loc.x,loc.y,size/9, r, 0));
@@ -57,12 +56,13 @@ class Asteroid extends GameObject {
          MyObjects.add(new Asteroid(size/2, loc.x+MyObj.vel.x,loc.y+MyObj.vel.y,90));
          MyObjects.add(new Asteroid(size/2, loc.x-MyObj.vel.x,loc.y-MyObj.vel.y,270));
          } else a++;
+         score++;
         }
       }
       i++;
     }
     if(a >= 2) {
-      MyObjects.add(new Asteroid());
+      MyObjects.add(new Asteroid());    //UNUSED AND FORGOTTEN CODE MAY BE VITAL SO IT AVOIDS THE "//"
       a--;
     }
   }

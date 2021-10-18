@@ -1,7 +1,7 @@
-class GameObject{
+class GameObject {
   int lives;
   
-  int size, a;
+  int size, a;            //GAMEOBJECT VITAL VARIABLES FOR MOST OF CODE
   
   
   PVector loc;
@@ -9,7 +9,7 @@ class GameObject{
   PVector dir;
   
   
-  GameObject(){
+  GameObject() {
     
     
   }

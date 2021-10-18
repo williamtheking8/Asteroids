@@ -4,7 +4,7 @@ class UFO extends GameObject {
   int r; 
   UFO() {
      lives = 1;
-     
+                                       //SPAWN VARIABLES
      
      size = 50;
     
@@ -17,7 +17,7 @@ class UFO extends GameObject {
    r = 0;
   }
   void show() {
-    strokeWeight(4);
+    strokeWeight(4);                            //VISUAL
     fill(0);
     stroke(#67E310);
     circle(loc.x,loc.y,size);
@@ -29,12 +29,12 @@ class UFO extends GameObject {
     super.act();
      TimeShot++;
   if (TimeShot >= 90) {
-    MyObjects.add(new UFO_Bullet(Ship.loc.x - loc.x, Ship.loc.y - loc.y,loc.x,loc.y));
+    MyObjects.add(new UFO_Bullet(Ship.loc.x - loc.x, Ship.loc.y - loc.y,loc.x,loc.y));        //SHOOTING AT PLAYER
     TimeShot = 0;
    }
    
    int i = 0;
-    while( i < MyObjects.size()) {
+    while( i < MyObjects.size()) {                          //COLLISION
       GameObject MyObj = MyObjects.get(i);
       if (MyObj instanceof Bullet) {
         if ( dist(loc.x,loc.y,MyObj.loc.x,MyObj.loc.y) <= size/2 + MyObj.size/2){

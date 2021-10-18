@@ -11,7 +11,7 @@ class UFO_Bullet extends GameObject {
     
     loc = new PVector(x,y);
     
-    vel = new PVector(vx,vy);
+    vel = new PVector(vx,vy);            //SPAWNING VARIABLES AND MOVEMENT
     vel.setMag(5);
     vel.add(vel);
     
@@ -30,11 +30,11 @@ class UFO_Bullet extends GameObject {
    loc = loc.add(vel);
    // if (loc.x < 0) loc.x = width;
    //if (loc.x > width) loc.x = 0;
-   // if (loc.y < 0) loc.y = height;
+   // if (loc.y < 0) loc.y = height;                //SEEMS UNFUN TO LET IT WRAP AROUND
    //if (loc.y > height) loc.y = 0;
    
    r--;
-   if (r <= 0) {
+   if (r <= 0) { //TIMER 
      lives = 0;
    }
    

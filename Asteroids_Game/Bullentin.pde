@@ -5,7 +5,7 @@ class Bullet extends GameObject {
 
   Bullet () {
     r = 100;
-    lives = 1; 
+    lives = 1;             //BULLET SETUP
     size = 10;
     
     loc = new PVector(Ship.loc.x,Ship.loc.y);
@@ -24,7 +24,7 @@ class Bullet extends GameObject {
   }
   void act() {
    loc = loc.add(vel);
-    if (loc.x < 0) loc.x = width;
+    if (loc.x < 0) loc.x = width;                    //BULLET LOGIC
    if (loc.x > width) loc.x = 0;
     if (loc.y < 0) loc.y = height;
    if (loc.y > height) loc.y = 0;

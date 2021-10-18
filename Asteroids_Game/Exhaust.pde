@@ -11,7 +11,7 @@ class Fire extends GameObject{
     t   = int(random(155,255));
     loc = Ship.loc.copy();
     
-    h = 0;
+    h = 0;                            //GETTING EXHAUST TO LOOK REALISTIC
     
     nudge = Ship.dir.copy();
     nudge.rotate(PI);
@@ -27,7 +27,7 @@ class Fire extends GameObject{
   }
   void show(){
     noStroke();
-    fill(h,255,255,t);  
+    fill(h,255,255,t);                            // VARIANCE IN EXHAUST
     int i = 0;
     while (i < 3) {
       if(i == 0)  square(loc.x,loc.y,size/1.5);
@@ -39,7 +39,7 @@ class Fire extends GameObject{
   void act(){
   loc = loc.add(vel);
   t -= 5;
-  if(t<= 0) lives = 0;
+  if(t<= 0) lives = 0;              //COLOUR CHANGE
   
   if(h < 25) h = h +0.8;
  
